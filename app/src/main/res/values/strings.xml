@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">ViewDataBindingDelegate</string>
+
+    <string name="this_is_a_fragment_by_viewBinding">This is a fragment by viewBinding</string>
+
+    <string name="this_is_a_fragment_by_dataBinding">This is a fragment by dataBinding</string>
+</resources>
