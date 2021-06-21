@@ -11,4 +11,10 @@
         android:label="ViewBindingFragment"
         tools:layout="@layout/fragment_view_binding" />
 
+    <fragment
+        android:id="@+id/dataBindingFragment"
+        android:name="com.sampacodes.viewdatabindingdelegate.presentation.dataBinding.DataBindingFragment"
+        android:label="DataBindingFragment"
+        tools:layout="@layout/fragment_data_binding" />
+
 </navigation>

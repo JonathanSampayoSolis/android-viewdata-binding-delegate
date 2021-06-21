@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/viewBindingFragment"
+        android:icon="@drawable/ic_baseline_preview_24"
+        android:iconTint="@color/teal_200"
+        android:title="@string/view_binding" />
+
+    <item
+        android:id="@+id/dataBindingFragment"
+        android:icon="@drawable/ic_baseline_data_usage_24"
+        android:iconTint="@color/teal_200"
+        android:title="@string/data_binding" />
+
+    <item
+        android:id="@+id/item_dialog_fragment"
+        android:icon="@drawable/ic_baseline_announcement_24"
+        android:iconTint="@color/teal_200"
+        android:title="@string/dialog_fragment" />
+
+    <item
+        android:id="@+id/item_bottom_dialog_fragment"
+        android:icon="@drawable/ic_baseline_announcement_24"
+        android:iconTint="@color/teal_200"
+        android:title="@string/bottom_dialog_fragment" />
+
+</menu>
