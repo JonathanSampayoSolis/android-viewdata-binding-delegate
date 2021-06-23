@@ -3,25 +3,24 @@ package com.sampacodes.viewdatabindingdelegate
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.sampacodes.viewdatabindingdelegate.arch.presentation.AppActivity
 import com.sampacodes.viewdatabindingdelegate.arch.presentation.tagClass
+import com.sampacodes.viewdatabindingdelegate.arch.presentation.viewBinding
 import com.sampacodes.viewdatabindingdelegate.databinding.ActivityMainBinding
 import com.sampacodes.viewdatabindingdelegate.presentation.bottomSheetDialogFragment.BindingBottomSheetDialogFragment
 import com.sampacodes.viewdatabindingdelegate.presentation.dialogFragment.ViewBindingDialogFragment
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppActivity() {
 
     private val mTag by tagClass()
 
-    private val binding: ActivityMainBinding by lazy {
-        ActivityMainBinding.inflate(layoutInflater)
-    }
+    private val binding by viewBinding<ActivityMainBinding>()
 
     private val navController: NavController by lazy {
         supportFragmentManager.findFragmentById(R.id.nav_host_fragment).let {
@@ -31,7 +30,6 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(binding.root)
 
         val appBarConfig = AppBarConfiguration(
             setOf(R.id.viewBindingFragment, R.id.dataBindingFragment),
