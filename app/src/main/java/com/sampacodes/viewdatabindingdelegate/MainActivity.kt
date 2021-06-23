@@ -13,6 +13,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.sampacodes.viewdatabindingdelegate.arch.presentation.tagClass
 import com.sampacodes.viewdatabindingdelegate.databinding.ActivityMainBinding
 import com.sampacodes.viewdatabindingdelegate.presentation.bottomSheetDialogFragment.BindingBottomSheetDialogFragment
+import com.sampacodes.viewdatabindingdelegate.presentation.dialogFragment.ViewBindingDialogFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -59,6 +60,12 @@ class MainActivity : AppCompatActivity() {
 
             R.id.item_bottom_dialog_fragment -> {
                 BindingBottomSheetDialogFragment.newInstance()
+                    .show(supportFragmentManager, mTag)
+                true
+            }
+
+            R.id.item_dialog_fragment -> {
+                ViewBindingDialogFragment.newInstance()
                     .show(supportFragmentManager, mTag)
                 true
             }

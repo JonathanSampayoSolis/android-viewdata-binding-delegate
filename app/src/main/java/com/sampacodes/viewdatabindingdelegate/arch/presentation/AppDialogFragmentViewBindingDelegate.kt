@@ -1,6 +1,7 @@
 package com.sampacodes.viewdatabindingdelegate.arch.presentation
 
 import android.view.LayoutInflater
+import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
@@ -9,12 +10,13 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlin.properties.ReadOnlyProperty
 import kotlin.reflect.KProperty
 
-inline fun <reified T : ViewBinding> BottomSheetDialogFragment.viewBinding() =
-    AppBottomSheetDialogFragmentDelegate(T::class.java)
+@Suppress("unused")
+inline fun <reified T : ViewBinding> DialogFragment.viewBinding() =
+    AppDialogFragmentViewBindingDelegate(T::class.java)
 
-class AppBottomSheetDialogFragmentDelegate<T : ViewBinding>(
+class AppDialogFragmentViewBindingDelegate<T : ViewBinding>(
     bindingClass: Class<T>
-) : ReadOnlyProperty<BottomSheetDialogFragment, T> {
+) : ReadOnlyProperty<DialogFragment, T> {
 
     private var binding: T? = null
 
@@ -23,7 +25,7 @@ class AppBottomSheetDialogFragmentDelegate<T : ViewBinding>(
     }
 
     @Suppress("UNCHECKED_CAST")
-    override fun getValue(thisRef: BottomSheetDialogFragment, property: KProperty<*>): T {
+    override fun getValue(thisRef: DialogFragment, property: KProperty<*>): T {
         // if exist a binding reference return
         binding?.let { return it }
 
