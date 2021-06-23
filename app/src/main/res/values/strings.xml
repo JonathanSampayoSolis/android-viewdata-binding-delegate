@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">ViewDataBindingDelegate</string>
+
+    <string name="this_is_a_fragment_by_viewBinding">This is a fragment by viewBinding</string>
+
+    <string name="this_is_a_fragment_by_dataBinding">This is a fragment by dataBinding</string>
+
+    <string name="this_is_a_bottomsheet_by_viewbinding">This is a BottomSheet by ViewBinding</string>
+
+    <string name="this_is_a_dialogfragment_by_viewbinding">This is a DialogFragment by ViewBinding</string>
+
+
+    <string name="view_binding">View Binding</string>
+
+    <string name="data_binding">Data Binding</string>
+    <string name="dialog_fragment">Dialog Fragment</string>
+
+    <string name="bottom_dialog_fragment">Bottom Dialog Fragment</string>
+</resources>
