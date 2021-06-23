@@ -24,7 +24,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="@string/this_is_a_fragment_by_dataBinding" />
+            tools:text="{This is a fragment by dataBinding}" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -1,6 +1,7 @@
 package com.sampacodes.viewdatabindingdelegate.arch.presentation
 
 import android.view.View
+import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
