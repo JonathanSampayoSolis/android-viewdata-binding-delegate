@@ -1,22 +1,19 @@
 package com.sampacodes.viewdatabindingdelegate.presentation.viewBinding
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.ViewGroup
+import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.sampacodes.viewdatabindingdelegate.R
+import com.sampacodes.viewdatabindingdelegate.arch.presentation.viewBinding
 import com.sampacodes.viewdatabindingdelegate.databinding.FragmentViewBindingBinding
 
-class ViewBindingFragment : Fragment() {
+class ViewBindingFragment : Fragment(R.layout.fragment_view_binding) {
 
-    private lateinit var binding: FragmentViewBindingBinding
+    private val binding by viewBinding<FragmentViewBindingBinding>()
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ) = FragmentViewBindingBinding.inflate(inflater, container, false).let {
-        binding = it
-        binding.root
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        Toast.makeText(requireContext(), binding.textViewSubtitle.text, Toast.LENGTH_SHORT).show()
     }
 
 }
