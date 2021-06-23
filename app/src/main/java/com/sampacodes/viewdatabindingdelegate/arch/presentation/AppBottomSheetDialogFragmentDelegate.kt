@@ -1,30 +1,29 @@
 package com.sampacodes.viewdatabindingdelegate.arch.presentation
 
-import android.view.View
-import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
 import androidx.viewbinding.ViewBinding
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlin.properties.ReadOnlyProperty
 import kotlin.reflect.KProperty
 
-@Suppress("unused")
-inline fun <reified T : ViewBinding> Fragment.viewBinding() =
-    AppFragmentViewBindingDelegate(T::class.java)
+inline fun <reified T : ViewBinding> BottomSheetDialogFragment.viewBinding() =
+    AppBottomSheetDialogFragmentDelegate(T::class.java)
 
-class AppFragmentViewBindingDelegate<T : ViewBinding>(
+class AppBottomSheetDialogFragmentDelegate<T : ViewBinding>(
     bindingClass: Class<T>
-) : ReadOnlyProperty<Fragment, T> {
+) : ReadOnlyProperty<BottomSheetDialogFragment, T> {
 
     private var binding: T? = null
 
-    private val bindMethod by lazy {
-        bindingClass.getMethod("bind", View::class.java)
+    private val inflateMethod by lazy {
+        bindingClass.getMethod("inflate", LayoutInflater::class.java)
     }
 
     @Suppress("UNCHECKED_CAST")
-    override fun getValue(thisRef: Fragment, property: KProperty<*>): T {
+    override fun getValue(thisRef: BottomSheetDialogFragment, property: KProperty<*>): T {
         // if exist a binding reference return
         binding?.let { return it }
 
@@ -39,8 +38,7 @@ class AppFragmentViewBindingDelegate<T : ViewBinding>(
 
         })
 
-        // bind binding given an already inflated view
-        val invoke = bindMethod.invoke(null, thisRef.requireView()) as T
+        val invoke = inflateMethod.invoke(null, LayoutInflater.from(thisRef.context)) as T
         return invoke.also { binding -> this.binding = binding }
     }
 
